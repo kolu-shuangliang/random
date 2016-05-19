@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-store">
+
+    <title>SSE chat</title>
+
+    <!-- Include reset from repository root. -->
+    <link rel="stylesheet" href="../reset.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <!-- Container for all HTML elements -->
+    <div id="container">
+        <div id="message-log"></div>
+        <div id="chat-input">
+            <form id="login-form">
+                <div class="input-container">
+                    <input name="username" type="TEXT" placeholder="Enter Username!" autofocus autocomplete="off" />
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Loads JavaScripts at end of the body -->
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
