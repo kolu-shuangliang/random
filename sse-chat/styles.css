@@ -40,7 +40,6 @@ html, body{
         font-size: 17px;
         color: black;
     }
-
     #message-log .message-container:nth-child(even){
         background: dimgray;
         color: white;
@@ -98,7 +97,7 @@ html, body{
             background: cornflowerblue;
         }
         
-@media screen and ( max-width: 400px ) {
+@media screen and ( max-width: 500px ) {
     
     #message-log .message-container{
         margin-top: 5px;
