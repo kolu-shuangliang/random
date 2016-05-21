@@ -29,8 +29,9 @@ html, body{
     width: 100%;
     height: 90%;
     height: calc( 100% - 40px );
+    
+    overflow-y: scroll;
 }
-
     #message-log .message-container{
         width: 100%;
         min-height: 30px;
@@ -48,10 +49,6 @@ html, body{
         #message-log .message-container span{
             padding-left: 10px;
         }
-
-
-
-
 
 #chat-input{
     width: 100%;
