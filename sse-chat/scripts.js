@@ -52,9 +52,16 @@ function chatinput(){
     button.textContent = 'Send';
     
     form.addEventListener( 'submit', function( event ){
+        event.preventDefault();
         
+        var data = {
+            'username': sessionStorage.username,
+            'message': this.message.value
+        }
         
+        sendMessage( data, './postMessage.php' );
         
+        this.reset();
     } );
     
     input.focus();
