@@ -59,3 +59,35 @@ function chatinput(){
     
     input.focus();
 }
+
+// XMLHttpRequest using guide from developer.mozilla.org
+function sendMessage( data, formUrl ){
+    var XHR = new XMLHttpRequest();
+    var urlEncodedData = "";
+    var urlEncodedDataPairs = [];
+    var name;
+    
+    // Insert all data into urlEncodedDataPairs as 'name=data' string
+    for( name in data ){
+        urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[ name ] ) );
+    }
+    
+    // Parse all data from array into single string
+    // application/x-www-form-urlencoded - replace %20 with +
+    urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
+    
+    // load and error handler
+    XHR.addEventListener( 'load', function( event ){
+        // Success - Maybe return returned data from request
+        console.log( event.target.responseText );
+    } );
+    XHR.addEventListener( 'error', function( event ){
+        // Error - Maybe return returned data from request
+    } );
+    
+    // Setup request
+    XHR.open( 'POST', formUrl );
+    XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+    // Send
+    XHR.send( urlEncodedData );
+}
