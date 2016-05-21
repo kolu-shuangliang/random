@@ -15,12 +15,15 @@ try{
 			id INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
 			user VARCHAR( 50 ),
 			message VARCHAR( 255 ),
-			date DATE);";
+			date INT );";
 	$connection->exec( $query );
 	
 	echo "chat Table created!\n";
     
-    $query = "CREATE TABLE IF NOT EXISTS size( count INT( 10 ) );";
+    $query = "
+		CREATE TABLE IF NOT EXISTS size(
+			id INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
+			count INT( 10 ) );";
 	$connection->exec( $query );
 	
 	echo "size Table created!\n";
