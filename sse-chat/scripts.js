@@ -59,7 +59,7 @@ function chatinput(){
             'message': this.message.value
         }
         
-        sendMessage( data, './postMessage.php' );
+        sendMessage( data, './post_message.php' );
         
         this.reset();
     } );
