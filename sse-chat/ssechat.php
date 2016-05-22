@@ -38,7 +38,7 @@ while( 1 ){
 				echo '"start": "'. $latest .'",';
 				for($x = 0; $x < count($messages); $x++ ){
 					echo '"'.$latest++.'": {';
-						echo '"sender": "'. $messages[ $x ][ 'user' ] .'",';
+						echo '"username": "'. $messages[ $x ][ 'user' ] .'",';
 						echo '"message": "'. $messages[ $x ][ 'message' ] .'",';
 						echo '"date": "'. $messages[ $x ][ 'date' ] .'"';
 					echo '},';
