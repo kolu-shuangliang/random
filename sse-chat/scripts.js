@@ -2,7 +2,9 @@ console.log( 'Server-Sent Events' );
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // GLOBAL VARIABLES
-var current = 0;
+var latest = 0;
+var url = 'ssechat.php';
+var messageLog = document.getElementById( 'message-log' );
 
 if( sessionStorage.username ){
     console.log( 'logged in - username: ' + sessionStorage.username );
@@ -30,8 +32,56 @@ else{
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // FUNCTIONS
 
+// Server-Sent event function
+// Starts connection and handle all events
+function startSSEvent( ){
+    var eventSource = new EventSource( url + '?latest=' + latest );
+    
+    // Add handler to message event
+    eventSource.addEventListener( 'message', function( event ){
+        var data = JSON.parse( event.data );
+        
+        for( var x = data.start; x <= data.end; x++ ){
+            var container = document.createElement( 'div' );
+            messageLog.appendChild( container );
+            container.className = 'message-container';
+            
+            var date = document.createElement( 'SPAN' );
+            container.appendChild( date );
+            date.className = 'date';
+            // Convert to milliseconds
+            var timestamp = new Date( Number( data[ x ].date ) * 1000 );
+            
+            date.textContent = timestamp.getHours() + ':' + timestamp.getMinutes() + ':' + timestamp.getSeconds();
+            
+            var username = document.createElement( 'SPAN' );
+            container.appendChild( username );
+            username.className = 'username';
+            username.textContent = '[ ' + data[ x ].username + ' ] ';
+            
+            var message = document.createElement( 'SPAN' );
+            container.appendChild( message );
+            message.className = 'message';
+            message.textContent = data[ x ].message;
+        }
+    }, false );
+    
+    // logs to console on open
+    eventSource.onopen = function(){
+        console.log( 'connection open to ' + url );
+    }
+    // Reconnect on error
+    eventSource.onerror = function(){
+        console.log( 'connection error' );
+        eventSource.close();
+        startSSEvent();
+    }
+}
+
 // Replace login-form with chat-form
 function loggedIn(){
+    startSSEvent();
+    
     var element = document.getElementById( 'chat-input' );
     element.innerHTML = '';
     
@@ -43,7 +93,7 @@ function loggedIn(){
     form.appendChild( input );
     input.name = 'message';
     input.type = 'TEXT';
-    input.placeholder = 'Logged in as: ' + sessionStorage.username + ' - Enter message.';
+    input.placeholder = 'Enter message. - Logged in as: ' + sessionStorage.username;
     input.autocomplete = 'off';
     
     var button = document.createElement( 'BUTTON' );
