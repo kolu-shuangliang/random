@@ -7,7 +7,7 @@ var current = 0;
 if( sessionStorage.username ){
     console.log( 'logged in - username: ' + sessionStorage.username );
     
-    chatinput();
+    loggedIn();
 }
 else{
     document.getElementById( 'login-form' ).addEventListener( 'submit', function( event ){
@@ -19,7 +19,7 @@ else{
             // Sets JavaScript session storage.
             sessionStorage.username = this.username.value;
             
-            chatinput();
+            loggedIn();
         }
         else{
             alert( 'Insert username!' );
@@ -31,7 +31,7 @@ else{
 // FUNCTIONS
 
 // Replace login-form with chat-form
-function chatinput(){
+function loggedIn(){
     var element = document.getElementById( 'chat-input' );
     element.innerHTML = '';
     
@@ -62,6 +62,8 @@ function chatinput(){
         sendMessage( data, './post_message.php' );
         
         this.reset();
+        
+        input.focus();
     } );
     
     input.focus();
