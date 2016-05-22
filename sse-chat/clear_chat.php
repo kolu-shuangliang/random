@@ -11,6 +11,7 @@ try{
     $query = $connection->prepare( 'UPDATE size SET count = 0 WHERE id = 1' );
     $query->execute();
     
+    echo "Chat cleared!";
 }
 catch( PDOException $error ){
     echo $error->getMessage();
