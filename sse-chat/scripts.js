@@ -6,6 +6,8 @@ var latest = 0;
 var url = 'ssechat.php';
 var messageLog = document.getElementById( 'message-log' );
 
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+// LOGIN SESSION CHECK
 if( sessionStorage.username ){
     console.log( 'logged in - username: ' + sessionStorage.username );
     
@@ -92,6 +94,7 @@ function loggedIn(){
     var input = document.createElement( 'INPUT' );
     form.appendChild( input );
     input.name = 'message';
+    input.maxLength = 250;
     input.type = 'TEXT';
     input.placeholder = 'Enter message. - Logged in as: ' + sessionStorage.username;
     input.autocomplete = 'off';
@@ -106,7 +109,7 @@ function loggedIn(){
         
         var data = {
             'username': sessionStorage.username,
-            'message': this.message.value
+            'message': this.message.value.substr( 0, 250 )
         }
         
         sendMessage( data, './post_message.php' );
