@@ -13,7 +13,7 @@ try{
     $query = "
 		CREATE TABLE IF NOT EXISTS chat(
 			id INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
-			user VARCHAR( 50 ),
+			user VARCHAR( 25 ),
 			message VARCHAR( 255 ),
 			date INT );";
 	$connection->exec( $query );
