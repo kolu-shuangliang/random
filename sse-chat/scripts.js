@@ -66,6 +66,9 @@ function startSSEvent( ){
             message.className = 'message';
             message.textContent = data[ x ].message;
         }
+        
+        latest = data.end;
+        
     }, false );
     
     // logs to console on open
