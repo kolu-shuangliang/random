@@ -31,7 +31,7 @@ try{
 	$query = $connection->prepare( 'TRUNCATE TABLE chat' );
     $query->execute();
 	
-	$query = $connection->prepare( 'TRUNCATE TABLE ssechat' );
+	$query = $connection->prepare( 'TRUNCATE TABLE size' );
     $query->execute();
 	
 	$query = $connection->prepare( 'INSERT INTO size ( count ) VALUES ( 0 )' );
