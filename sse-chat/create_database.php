@@ -27,6 +27,15 @@ try{
 	$connection->exec( $query );
 	
 	echo "size Table created!\n";
+	
+	$query = $connection->prepare( 'TRUNCATE TABLE chat' );
+    $query->execute();
+	
+	$query = $connection->prepare( 'TRUNCATE TABLE ssechat' );
+    $query->execute();
+	
+	$query = $connection->prepare( 'INSERT INTO size ( count ) VALUES ( 0 )' );
+	$query->execute();
     
 }
 catch( PDOException $error ){
