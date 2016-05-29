@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/base.css">
 	
+	
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-	<!-- Navbar -->
+	<!-- Navbar. Supports only single nested element inside navbar. -->
 	<nav id="navbar-container">
 		<div class="navbar-logo">
 			<a id="nav-toggle" href="#"><span></span></a>
@@ -26,14 +27,13 @@
 			<li><a href="#Link1">Link 1</a></li>
 			<li><a href="#Link2">Link 2</a></li>
 			<li><a href="#Link3">Link 3</a></li>
-			<li><a href="#Link3">Nested 1</a>
+			<li><a class="collapser" href="#Link3">Nested 1</a>
 				<ul class="navbar-nested">
 					<li><a href="#NestedLink1">Nested Link 1</a></li>
 					<li><a href="#NestedLink2">Nested Link 2</a></li>
-					<li><a href="#NestedLink3">Nested Link 3</a></li>
 				</ul>
 			</li>
-			<li><a href="#Link3">Nested 2</a>
+			<li><a class="collapser" href="#Link3">Nested 2</a>
 				<ul class="navbar-nested">
 					<li><a href="#NestedLink1">Nested Link 1</a></li>
 					<li><a href="#NestedLink2">Nested Link 2</a></li>
@@ -42,7 +42,7 @@
 			</li>
 		</ul>
 	</nav>
-	
+	<script src="js/navbar.js"></script>
 	
     <div class="container">
 		<div class="test cl-1 primary">1</div>
