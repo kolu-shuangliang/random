@@ -7,7 +7,7 @@
 }
 
 .container{
-	position: relative;
+	float: left;
 	width: 100%;
 	overflow: auto;
 }
@@ -15,4 +15,5 @@
 hr{
 	float: left;
 	width: 100%;
+	box-sizing: border-box;
 }
