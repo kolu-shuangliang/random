@@ -22,7 +22,6 @@ body {
 #navbar-container {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 50px;
   background-color: whitesmoke;
@@ -33,12 +32,7 @@ body {
     padding: 0; }
     #navbar-container ul li {
       float: left;
-      position: relative;
-      /*
-			a:not( :only-child ) <a> tag parent contains other childs too. 
-			Nested link li contains ul.
-			Adds ▾ after.
-			*/ }
+      position: relative; }
       #navbar-container ul li a {
         display: block;
         padding: 0 15px;
@@ -52,14 +46,27 @@ body {
       #navbar-container ul li .collapser:after {
         padding-left: 5px;
         content: '▾'; }
-      #navbar-container ul li ul li {
-        min-width: 200px; }
-        #navbar-container ul li ul li a {
-          padding-left: 15px;
-          line-height: 50px; }
       #navbar-container ul li .navbar-nested {
         position: absolute;
         display: none; }
+        #navbar-container ul li .navbar-nested li {
+          min-width: 200px; }
+          #navbar-container ul li .navbar-nested li a {
+            padding-left: 20px;
+            line-height: 50px; }
+  #navbar-container #navbar-collapser {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 20px;
+    line-height: 50px;
+    font-size: 30px;
+    color: black;
+    text-decoration: none; }
+  #navbar-container #navbar-collapser:hover {
+    color: whitesmoke;
+    background-color: #6e6e6e; }
 
 /* 
 	Responsive grid elements
@@ -107,7 +114,24 @@ body {
     width: calc( 50% - 10px); } }
 
 /* Small Devices, Tablets */
+/* COLLAPSED NAVBAR*/
 @media only screen and (max-width: 768px) {
+  #navbar-container #navbar-logo {
+    min-width: 0px;
+    height: 100%; }
+  #navbar-container ul {
+    display: none; }
+    #navbar-container ul li {
+      width: 100%; }
+      #navbar-container ul li .navbar-nested {
+        position: relative; }
+        #navbar-container ul li .navbar-nested li {
+          width: 100%; }
+  #navbar-container #navbar-collapser {
+    display: block !important; }
+  #navbar-container #navbar-collapser:hover {
+    color: whitesmoke;
+    background-color: #6e6e6e; }
   .cl-4 {
     width: calc( 33.33% - 10px); }
   .cl-44 {
