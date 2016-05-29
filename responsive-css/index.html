@@ -9,13 +9,41 @@
     <title>Responsive - min size</title>
 
     <!-- Include stylsheet file -->
-    <link rel="stylesheet" href="../reset.css">
-	<link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/base.css">
 	
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+	<!-- Navbar -->
+	<nav id="navbar-container">
+		<div class="navbar-logo">
+			<a id="nav-toggle" href="#"><span></span></a>
+		</div>
+		<ul class="nav-links">
+			<li><a href="#Home">Home</a></li>
+			<li><a href="#Link1">Link 1</a></li>
+			<li><a href="#Link2">Link 2</a></li>
+			<li><a href="#Link3">Link 3</a></li>
+			<li><a href="#Link3">Nested 1</a>
+				<ul class="navbar-nested">
+					<li><a href="#NestedLink1">Nested Link 1</a></li>
+					<li><a href="#NestedLink2">Nested Link 2</a></li>
+					<li><a href="#NestedLink3">Nested Link 3</a></li>
+				</ul>
+			</li>
+			<li><a href="#Link3">Nested 2</a>
+				<ul class="navbar-nested">
+					<li><a href="#NestedLink1">Nested Link 1</a></li>
+					<li><a href="#NestedLink2">Nested Link 2</a></li>
+					<li><a href="#NestedLink3">Nested Link 3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	
     <div class="container">
 		<div class="test cl-1 primary">1</div>
 	</div>

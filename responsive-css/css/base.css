@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/* Primary and secondary classes */
+.primary {
+  background-color: #dcebff; }
+
+.secondary {
+  background-color: whitesmoke; }
+
+/* Left / right float classes */
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+/*
+	Navbar
+*/
+body {
+  margin-top: 50px; }
+
+#navbar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #dcebff;
+  z-index: 999999; }
+  #navbar-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #navbar-container ul li {
+      float: left;
+      position: relative;
+      /*
+			a:not( :only-child ) <a> tag parent contains other childs too. 
+			Nested link li contains ul.
+			Adds ▾ after.
+			*/ }
+      #navbar-container ul li a {
+        display: block;
+        padding: 0 10px;
+        line-height: 50px;
+        background-color: #dcebff;
+        color: black;
+        text-decoration: none; }
+      #navbar-container ul li a:hover {
+        background-color: whitesmoke; }
+      #navbar-container ul li a:not(:only-child):after {
+        padding-left: 5px;
+        content: '▾'; }
+      #navbar-container ul li ul li {
+        min-width: 150px; }
+        #navbar-container ul li ul li a {
+          padding-left: 15px;
+          line-height: 50px; }
+
+/* 
+	Responsive grid elements
+*/
+/* General styles. Floats, borders, colors, etc */
+.cl-1, .cl-2, .cl-3, .cl-33, .cl-4, .cl-44, .cl-444 {
+  height: 0px;
+  float: left;
+  margin: 0 5px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: white; }
+
+/* 1 / 1 object */
+.cl-1 {
+  width: calc( 100% - 10px); }
+
+/* 1 / 2 objects */
+.cl-2 {
+  width: calc( 50% - 10px); }
+
+/* 1 / 3 objects */
+.cl-3 {
+  width: calc( 33.33% - 10px); }
+
+.cl-33 {
+  width: calc( 66.66% - 10px); }
+
+/* 1 / 4 objects */
+.cl-4 {
+  width: calc( 25% - 10px); }
+
+.cl-44 {
+  width: calc( 50% - 10px); }
+
+.cl-444 {
+  width: calc( 75% - 10px); }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .cl-2, .cl-33, .cl-444 {
+    width: calc( 100% - 10px); }
+  .cl-3 {
+    width: calc( 50% - 10px); } }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .cl-4 {
+    width: calc( 33.33% - 10px); }
+  .cl-44 {
+    width: calc( 66.66% - 10px); } }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .cl-3 {
+    width: calc( 100% - 10px); }
+  .cl-4 {
+    width: calc( 50% - 10px); }
+  .cl-44 {
+    width: calc( 100% - 10px); } }
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  .cl-4 {
+    width: calc( 100% - 10px); } }

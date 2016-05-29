@@ -1,10 +1,76 @@
+$primary-color: rgb( 220, 235, 255 );
+$secondary-color: rgb( 245, 245, 245 );
+$navbar-height: 50px;
+
 /* Primary and secondary classes */
 .primary{
-	background-color: rgb( 211, 226, 242 );
+	background-color: $primary-color;
 }
 .secondary{
-	background-color: rgb( 245, 245, 245 );
+	background-color: $secondary-color;
 }
+/* Left / right float classes */
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+
+/*
+	Navbar
+*/
+body{
+	margin-top: $navbar-height;
+}
+#navbar-container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $navbar-height;
+	background-color: $primary-color;
+	z-index: 999999;
+	ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li{
+			float: left;
+			position: relative;
+			a{
+				display: block;
+				padding: 0 10px;
+				line-height: $navbar-height;
+				background-color: $primary-color;
+				color: black;
+				text-decoration: none;
+			}
+			a:hover{
+				background-color: $secondary-color;
+			}
+			/*
+			a:not( :only-child ) <a> tag parent contains other childs too. 
+			Nested link li contains ul.
+			Adds ▾ after.
+			*/
+			a:not( :only-child ):after{
+				padding-left: 5px;
+				content: '▾';
+			}
+			ul li {
+				min-width: 150px;
+				a{
+					padding-left: 15px;
+					line-height: $navbar-height;
+				}
+			}
+		}
+	}
+}
+/* 
+	Responsive grid elements
+*/
 
 /* General styles. Floats, borders, colors, etc */
 .cl-1, .cl-2, .cl-3, .cl-33, .cl-4, .cl-44, .cl-444{
