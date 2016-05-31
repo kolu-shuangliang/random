@@ -54,13 +54,13 @@ var PersonalNavbar = function(){
     // Css don't seems to override JavaScript changes. So this seems to be easiest way.
     // Use mobile_view so actions are only performed once after entering/existing.
     window.addEventListener( 'resize', function( event ){
-        if( document.documentElement.clientWidth > 768 && mobile_view === true ){
+        if( window.innerWidth >= 769 && mobile_view === true ){
             for( var x = 0; x < ulList.length; x++ ){
                 ulList[ x ].style.display = 'inline';
             }
             mobile_view = false;
         }
-        else if( document.documentElement.clientWidth < 768 && mobile_view === false ){
+        else if( window.innerWidth <= 768 && mobile_view === false ){
             for( var x = 0; x < ulList.length; x++ ){
                 ulList[ x ].style.display = 'none';
                 collapsed = false;
@@ -82,7 +82,7 @@ var PersonalNavbar = function(){
             eventFire( document.getElementById( 'navbar-collapser' ), 'click' );
         }
     }, false );
-    
+    // Fire eventType on element.
     function eventFire( element, eventType ){
         if ( element.fireEvent ) {
             element.fireEvent( 'on' + eventType );
