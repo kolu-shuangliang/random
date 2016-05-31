@@ -1,5 +1,6 @@
 $primary-color: rgb( 220, 235, 255 );
 $secondary-color: rgb( 245, 245, 245 );
+$navbar-logo-size: 30px;
 $navbar-height: 50px;
 $navbar-color: rgb( 245, 245, 245 );
 $navbar-color-hover: rgb( 110, 110, 110 );
@@ -32,10 +33,23 @@ body{
 	height: $navbar-height;
 	background-color: $navbar-color;
 	z-index: 999999;
+	#navbar-logo{
+		float: left;	
+		a{
+			display: block;
+			padding: 0 20px;
+			font-size: $navbar-logo-size;
+			line-height: $navbar-height;
+			background-color: $navbar-color;
+			color: $navbar-color-hover;
+			text-decoration: none;
+		}
+	}
 	ul{
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		float: left;
 		li{
 			float: left;
 			position: relative;
@@ -129,11 +143,13 @@ body{
 @media only screen and ( max-width : 768px ) {
 	#navbar-container{
 		#navbar-logo{
+			width: 100%;
 			min-width: 0px;
 			height: 100%;
 		}
 		ul{
 			display: none;
+			width: 100%;
 			li{
 				width: 100%;
 				.navbar-nested{
