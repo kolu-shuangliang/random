@@ -19,7 +19,7 @@ body{
 	background-color: $navbar-color;
 	z-index: 999999;
 	#navbar-logo{
-		float: left;	
+		float: left;
 		a{
 			display: block;
 			padding: 0 20px;
@@ -60,8 +60,9 @@ body{
 				li {
 					min-width: 200px;
 					a{
-						padding-left: 20px;
+						padding-left: 15px;
 						line-height: $navbar-height;
+						border-left: 5px solid grey;
 					}
 				}
 			}
@@ -132,6 +133,9 @@ body{
 /* COLLAPSED NAVBAR*/
 @media only screen and ( max-width : 768px ) {
 	#navbar-container{
+		height: auto;
+		max-height: 100vh;
+		overflow-y: scroll;
 		#navbar-logo{
 			width: 100%;
 			min-width: 0px;
