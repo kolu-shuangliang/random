@@ -1,18 +1,4 @@
 @charset "UTF-8";
-/* Primary and secondary classes */
-.primary {
-  background-color: #dcebff; }
-
-.secondary {
-  background-color: whitesmoke; }
-
-/* Left / right float classes */
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
 /*
 	Navbar
 */
@@ -80,7 +66,8 @@ body {
     background-color: #6e6e6e; }
 
 /* 
-	Responsive grid elements
+	Responsive grid elements.
+	Mostly default view without media queries.
 */
 /* General styles. Floats, borders, colors, etc */
 .cl-1, .cl-2, .cl-3, .cl-33, .cl-4, .cl-44, .cl-444 {
@@ -117,6 +104,9 @@ body {
 .cl-444 {
   width: calc( 75% - 10px); }
 
+/*
+	Media queries
+*/
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .cl-2, .cl-33, .cl-444 {
@@ -163,3 +153,20 @@ body {
 @media only screen and (max-width: 320px) {
   .cl-4 {
     width: calc( 100% - 10px); } }
+
+/*
+	Some optional classes for easy fast css stuffs.
+	Loads at end so it will override default values.
+*/
+.primary {
+  background-color: #dcebff; }
+
+.secondary {
+  background-color: whitesmoke; }
+
+/* float classes. Override with !important; */
+.left {
+  float: left !important; }
+
+.right {
+  float: right !important; }
