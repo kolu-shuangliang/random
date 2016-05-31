@@ -5,6 +5,7 @@ var PersonalNavbar = function(){
     var ulList = document.getElementsByClassName( 'nav-links' );
     var collapsed = false;
     var mobile_view = false;
+    var selected_nested = null;
     // Check if styles are already in mobile view
     if( document.documentElement.clientWidth < 768 ){
         mobile_view = true;
@@ -17,6 +18,7 @@ var PersonalNavbar = function(){
             var el = this.parentElement.getElementsByClassName( 'navbar-nested' )[ 0 ];
             if( el.style.display === 'inline' ){
                 el.style.display = 'none';
+                selected_nested = null;
             }
             else{
                 // Hide all other displayed navbar elements.
@@ -29,6 +31,7 @@ var PersonalNavbar = function(){
                     }
                 }
                 el.style.display = 'inline';
+                selected_nested = this;
             }
         }, false );
     }
@@ -41,12 +44,20 @@ var PersonalNavbar = function(){
         for( var x = 0; x < ulList.length; x++ ){
             if( collapsed ){
                 ulList[ x ].style.display = 'none';
-                collapsed =  false;
             }
             else{
                 ulList[ x ].style.display = 'inline';
-                collapsed = true;
             }
+        }
+        
+        if( collapsed ){
+            collapsed =  false;
+        }
+        else{
+            collapsed = true;
+        }
+        if( selected_nested != null ){
+            eventFire( selected_nested, 'click' );
         }
     }, false);
     // Changes display.style for navbar links on entering and existing mobile views.
@@ -66,6 +77,9 @@ var PersonalNavbar = function(){
                 collapsed = false;
             }
             mobile_view = true;
+        }
+        if( selected_nested != null ){
+            eventFire( selected_nested, 'click' );
         }
     } );
     
