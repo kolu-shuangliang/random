@@ -3,6 +3,7 @@ var PersonalNavbar = function(){
     var collapser = document.getElementsByClassName( 'collapser' );
     var nested = document.getElementsByClassName( 'navbar-nested' );
     var ulList = document.getElementsByClassName( 'nav-links' );
+    var navbar_container = document.getElementById( 'navbar-container' );
     var collapsed = false;
     var mobile_view = false;
     var selected_nested = null;
@@ -68,6 +69,7 @@ var PersonalNavbar = function(){
         if( window.innerWidth >= 769 && mobile_view === true ){
             for( var x = 0; x < ulList.length; x++ ){
                 ulList[ x ].style.display = 'inline';
+                navbar_container.style.paddingLeft = navbar_container.offsetWidth - document.clientWidth;
             }
             mobile_view = false;
         }
