@@ -121,8 +121,7 @@ body {
   #navbar-container {
     height: auto;
     max-height: 100vh;
-    overflow-y: scroll;
-    padding-right: 17px; }
+    overflow-y: scroll; }
     #navbar-container #navbar-logo {
       width: 100%;
       min-width: 0px;
